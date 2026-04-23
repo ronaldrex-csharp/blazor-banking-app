@@ -14,7 +14,10 @@ namespace CoreBankingApplication.Infrastructure.Services
         {
             _factory = factory;
         }
-
+        /// <summary>
+        /// Get Account List with Customer Name, Masked Account Number and Balance
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<AccountListItemViewModel>> GetAccountListAsync()
         {
             await using var context = await _factory.CreateDbContextAsync();

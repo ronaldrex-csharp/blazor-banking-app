@@ -14,6 +14,8 @@ A Blazor-based web application for managing accounts and transactions with a sim
 
 * ASP.NET Core Blazor (.NET 10)
 * C#
+* Entity Framework Core (EF Core)
+* SQLite
 * Bootstrap (for base styling)
 * Custom CSS (`app.css`)
 

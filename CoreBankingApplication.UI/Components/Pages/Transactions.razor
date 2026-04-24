@@ -25,10 +25,7 @@
                 Review balances, post transactions, and monitor account movement in one place.
             </p>
         </div>
-        <button class="btn btn-bank-secondary"
-                @onclick='() => Nav.NavigateTo("/accounts")'>
-            Back to Accounts
-        </button>
+     
     </section>
 
     @switch (state)
@@ -95,8 +92,8 @@
                             </section>
                         }
 
-                        <DynamicMessage TModel="BankAccount"
-                                        Model="account"
+                        <DynamicMessage TModel="BankAccountViewModel"
+                                        Model="accountDisplay"
                                         MessageFunc="GetTransactionMessage"
                                         CssClass="alert-warning bank-alert bank-alert-warning" />
 
@@ -146,9 +143,8 @@
         try
         {
             accountDisplay = await AccountService.GetBankAccountViewModelByIdAsync(AccountId);
-            account = await AccountService.GetAccountByIdAsync(AccountId);
 
-            if (account == null)
+            if (accountDisplay == null)
             {
                 state = PageState.NotFound;
                 return;
@@ -203,7 +199,7 @@
     //   CREATE TRANSACTION
     private async Task HandleTransactionSubmit(TransactionInputModel transaction)
     {
-        if (account == null || transaction.Amount == null || transaction.Amount <= 0)
+        if (accountDisplay == null || transaction.Amount == null || transaction.Amount <= 0)
             return;
 
         bool isDeposit = transaction.Type == "Deposit";
@@ -211,7 +207,7 @@
         try
         {
             await TransactionService.CreateTransactionAsync(
-                account.Id,
+                accountDisplay.Id,
                 transaction.Amount.Value,
                 isDeposit);
 
@@ -234,21 +230,26 @@
     //   REFRESH
     private async Task RefreshModels()
     {
-        account = await AccountService.GetAccountByIdAsync(AccountId);
         accountDisplay = await AccountService.GetBankAccountViewModelByIdAsync(AccountId);
-
         currentPage = 1;
         await LoadTransactions();
     }
 
-    //   MESSAGE
-    private string GetTransactionMessage(BankAccount? account)
+    /// <summary>
+    /// Constructs a user-friendly message based on the current account and transaction state. 
+    /// If the account is not found, it returns an appropriate message. If the account exists but 
+    /// has no transactions, it informs the user accordingly. Otherwise, it returns an empty string, 
+    /// indicating that there are transactions to display.
+    /// </summary>
+    /// <param name="account"></param>
+    /// <returns></returns>
+    private string GetTransactionMessage(BankAccountViewModel? bankAccountViewModel)
     {
-        if (account == null)
+        if (bankAccountViewModel == null)
             return "Account not found.";
 
         if (pagedTransactions.Items.Count == 0)
-            return $"{account.Name} has no transactions.";
+            return $"{bankAccountViewModel.Name} has no transactions.";
 
         return "";
     }

@@ -30,7 +30,7 @@ A Blazor-based web application for managing accounts and transactions with a sim
 ### Prerequisites
 
 * .NET 10 SDK
-* Visual Studio 2022+
+* Visual Studio 2026
 
 ### Run the project
 

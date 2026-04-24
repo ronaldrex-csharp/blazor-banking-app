@@ -3,14 +3,6 @@
     background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
-.topbar {
-    background-color: #1f2937; /* matches dark UI */
-    padding: 0 24px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #374151;
-}
 
 .nav-container {
     width: 100%;

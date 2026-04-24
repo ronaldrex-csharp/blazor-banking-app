@@ -477,7 +477,7 @@ h1, h2, h3, h4, h5 {
         padding: 0.9rem;
     }
 }
-/* Green = Deposit */
+ Green = Deposit 
 .btn-bank-success {
     background-color: #16a34a;
     color: white;
@@ -488,7 +488,7 @@ h1, h2, h3, h4, h5 {
         background-color: #15803d;
     }
 
-/* Red = Withdrawal */
+ Red = Withdrawal 
 .btn-bank-danger {
     background-color: #dc2626;
     color: white;
@@ -499,7 +499,7 @@ h1, h2, h3, h4, h5 {
         background-color: #b91c1c;
     }
 
-/* Disabled */
+ Disabled 
 .btn-bank-disabled {
     background-color: #cbd5e1;
     color: #64748b;
@@ -554,7 +554,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .search-input {
-    padding-left: 2.2rem; /* makes space for icon */
+    padding-left: 2.2rem;  makes space for icon 
 }
 
 .table-header-actions {
@@ -626,44 +626,78 @@ button.btn-bank-action {
     line-height: 1 !important;
 }
 
-/* Typography */
+ Typography 
 body {
     font-family: "Segoe UI", Tahoma, sans-serif;
     color: #212529;
 }
 
-/* Headings */
+ Headings 
 h1, h2, h3 {
     font-weight: 600;
 }
 
-/* Shared subtitle */
+ Shared subtitle 
 .section-subtitle {
     color: #6c757d;
     font-size: 0.9rem;
 }
 
-/* Shared spacing */
+ Shared spacing 
 .bank-card {
     padding: 1.5rem;
     border-radius: 12px;
     background: white;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
-.topbar {
-    display: flex;
-    justify-content: flex-end; /* push menu to right */
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #1f2937; /* dark bar */
-    color: white;
-}
-.topbar a {
-        color: white;
-        margin-left: 15px;
-        text-decoration: none;
- }
+ 
 
-.topbar a:hover {
-            text-decoration: underline;
+body {
+    background-color: red;
+}
+
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 18px auto;
+    padding: 14px 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-nav a.nav-link {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+    .top-nav a.nav-link:hover {
+        background-color: #f3f4f6;
+        transform: translateY(-1px);
+    }
+
+.top-nav a.nav-btn,
+.top-nav button.nav-btn {
+    background: #1d4ed8;
+    color: white;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
 }

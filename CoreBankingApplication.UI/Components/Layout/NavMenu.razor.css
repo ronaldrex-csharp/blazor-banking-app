@@ -1,93 +1,716 @@
-.bank-nav {
-    max-width: 1280px;
-    margin: 0 auto;
-    min-height: 76px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0 1.5rem;
+/*html, body {
+    font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #0f172a;
+    background: #f8fafc;
 }
 
-.brand-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.9rem;
+body {
+    margin: 0;
+}
+
+a, .btn-link {
+    color: #1d4ed8;
+}
+
+a {
     text-decoration: none;
 }
 
-.brand-mark {
-    width: 44px;
-    height: 44px;
-    border-radius: 14px;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    color: white;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    box-shadow: 0 10px 24px rgba(30, 58, 138, 0.18);
+h1:focus {
+    outline: none;
 }
 
-.brand-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.15;
-}
-
-.brand-title {
+h1, h2, h3, h4, h5 {
     color: #0f172a;
+}
+
+.page-stack {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.page-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.page-title {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 2.75rem);
     font-weight: 800;
+    line-height: 1.05;
+}
+
+.page-subtitle,
+.section-subtitle,
+.field-hint,
+.muted-note {
+    color: #64748b;
+}
+
+.page-subtitle {
+    margin-top: 0.65rem;
+    max-width: 48rem;
     font-size: 1rem;
 }
 
-.brand-subtitle {
-    color: #64748b;
-    font-size: 0.82rem;
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
-.bank-links {
+.bank-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+    padding: 1.5rem;
+}
+
+.hero-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.hero-actions {
+    margin-top: 1.25rem;
     display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.hero-summary-grid,
+.summary-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.summary-grid.two-up,
+.hero-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.summary-tile,
+.summary-panel {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.summary-label {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.summary-value,
+.summary-money {
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.summary-money {
+    font-size: 1.75rem;
+    color: #166534;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.info-card p {
+    margin-bottom: 1rem;
+}
+
+.text-link {
+    font-weight: 700;
+}
+
+.section-heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.section-heading-row.compact {
+    margin-bottom: 1.25rem;
+}
+
+.section-heading-row h2,
+.section-title {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.section-badge,
+.account-chip {
+    display: inline-flex;
     align-items: center;
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.section-badge {
+    background: #eff6ff;
+    color: #1e3a8a;
+}
+
+.account-chip {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+}
+
+.bank-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.bank-table th,
+.bank-table td {
+    padding: 1rem 1.1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.bank-table thead th {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.bank-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.bank-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.table-primary-text {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.balance-cell {
+    font-weight: 800;
+    color: #0f766e;
+}
+
+.empty-row {
+    text-align: center;
+    color: #64748b;
+}
+
+.transactions-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.75fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.transactions-main,
+.transactions-side {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.hero-account-card {
+    display: grid;
+    gap: 1rem;
+}
+
+.account-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.form-card {
+    padding: 1.5rem;
+}
+
+.sticky-form-card {
+    position: sticky;
+    top: 104px;
+}
+
+.bank-label {
+    color: #334155;
+    font-weight: 700;
+}
+
+.bank-input,
+.form-select.bank-input,
+.bank-input-prefix {
+    border-color: #cbd5e1;
+}
+
+.bank-input {
+    min-height: 48px;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.bank-input:focus,
+.form-select.bank-input:focus,
+.form-control.bank-input:focus {
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.16);
+}
+
+.bank-input-group .bank-input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.bank-input-prefix {
+    background: #f8fafc;
+    color: #334155;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+}
+
+.button-stack {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    border-radius: 14px;
+    font-weight: 700;
+    padding: 0.8rem 1.15rem;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.btn-bank-primary {
+    color: #fff;
+    background: #1e3a8a;
+    border: 1px solid #1e3a8a;
+    box-shadow: 0 10px 18px rgba(30, 58, 138, 0.14);
+}
+
+.btn-bank-primary:hover:not(:disabled) {
+    color: #fff;
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+.btn-bank-secondary {
+    color: #1e293b;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+}
+
+.btn-bank-secondary:hover:not(:disabled) {
+    background: #f8fafc;
+    border-color: #94a3b8;
+}
+
+.btn-bank-disabled,
+.btn-bank-disabled:disabled {
+    color: #94a3b8;
+    background: #e2e8f0;
+    border: 1px solid #e2e8f0;
+}
+
+.bank-alert {
+    border-radius: 16px;
+    margin-top: 1rem;
+    border-width: 1px;
+}
+
+.bank-alert-warning {
+    background: #fffbeb;
+    color: #92400e;
+    border-color: #fde68a;
+}
+
+.status-state,
+.state-card {
+    min-height: 220px;
+}
+
+.status-state {
+    display: grid;
+    place-items: center;
+    text-align: center;
     gap: 0.5rem;
 }
 
-.bank-links ::deep .bank-link {
-    color: #334155;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 999px;
-    padding: 0.75rem 1rem;
-    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+.status-state p {
+    color: #64748b;
+    margin: 0;
 }
 
-.bank-links ::deep .bank-link:hover {
+.status-spinner {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 4px solid #dbeafe;
+    border-top-color: #1d4ed8;
+    animation: spin 0.8s linear infinite;
+}
+
+.status-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
     background: #eff6ff;
     color: #1d4ed8;
 }
 
-.bank-links ::deep a.active.bank-link {
-    background: #dbeafe;
-    color: #1e3a8a;
-    box-shadow: inset 0 0 0 1px #bfdbfe;
+.status-icon.error {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.toast-container .toast {
+    border-radius: 16px;
+    border: 0;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #16a34a;
+}
+
+.invalid {
+    outline: 1px solid #dc2626;
+}
+
+.validation-message {
+    color: #b91c1c;
+    display: block;
+    margin-top: 0.35rem;
+}
+
+.blazor-error-boundary {
+    background: #b91c1c;
+    color: white;
+    border-radius: 16px;
+    padding: 1rem 1rem 1rem 1.25rem;
+}
+
+.blazor-error-boundary::after {
+    content: "An error has occurred.";
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 992px) {
+    .hero-section,
+    .transactions-layout,
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sticky-form-card {
+        position: static;
+    }
 }
 
 @media (max-width: 768px) {
-    .bank-nav {
-        padding: 0.75rem 1rem;
-        min-height: auto;
+    .page-header-row,
+    .section-heading-row,
+    .account-card-header {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .bank-links {
-        width: 100%;
-        flex-wrap: wrap;
+    .summary-grid.two-up,
+    .hero-summary-grid {
+        grid-template-columns: 1fr;
     }
-    .bank-links {
-        display: flex;
-        gap: 1rem;
-        align-items: center; /* vertical alignment */
-        justify-content: flex-end; /* push to the right */
+
+    .bank-card {
+        padding: 1.1rem;
+        border-radius: 18px;
+    }
+
+    .bank-table th,
+    .bank-table td {
+        padding: 0.9rem;
     }
 }
+ Green = Deposit 
+.btn-bank-success {
+    background-color: #16a34a;
+    color: white;
+    border: none;
+}
+
+    .btn-bank-success:hover {
+        background-color: #15803d;
+    }
+
+ Red = Withdrawal 
+.btn-bank-danger {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+}
+
+    .btn-bank-danger:hover {
+        background-color: #b91c1c;
+    }
+
+ Disabled 
+.btn-bank-disabled {
+    background-color: #cbd5e1;
+    color: #64748b;
+    border: none;
+    cursor: not-allowed;
+}
+.filter-card {
+    padding: 1rem 1.25rem;
+}
+
+.filter-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-row .bank-input {
+        max-width: 360px;
+
+}
+.btn-bank-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 0.55rem 0.9rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+    .btn-bank-action:hover {
+        background: #f8fafc;
+        border-color: #94a3b8;
+    }
+
+.search-box {
+    position: relative;
+    display: inline-block;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    color: #64748b;
+    pointer-events: none;
+}
+
+.search-input {
+    padding-left: 2.2rem;  makes space for icon 
+}
+
+.table-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-box {
+    position: relative;
+    display: inline-block;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    color: #64748b;
+    pointer-events: none;
+}
+
+.search-input {
+    padding-left: 2.2rem;
+    min-width: 260px;
+}
+
+.actions-header {
+    width: 180px;
+}
+
+.actions-cell {
+    white-space: nowrap;
+}
+
+button.btn-bank-action {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    min-width: 140px;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 10px !important;
+    padding: 0.55rem 0.9rem !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+}
+
+    button.btn-bank-action:hover {
+        background: #f8fafc !important;
+        border-color: #94a3b8 !important;
+        color: #0f172a !important;
+    }
+
+.action-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    border-radius: 999px !important;
+    background: rgba(30, 58, 138, 0.08) !important;
+    font-size: 0.8rem !important;
+    line-height: 1 !important;
+}
+
+ Typography 
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #212529;
+}
+
+ Headings 
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+ Shared subtitle 
+.section-subtitle {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+ Shared spacing 
+.bank-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+ 
+
+body {
+    background-color: red;
+}
+
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 18px auto;
+    padding: 14px 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-nav a.nav-link {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+    .top-nav a.nav-link:hover {
+        background-color: #f3f4f6;
+        transform: translateY(-1px);
+    }
+
+.top-nav a.nav-btn,
+.top-nav button.nav-btn {
+    background: #111827;
+    color: white;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 18px auto;
+    padding: 14px 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+*/

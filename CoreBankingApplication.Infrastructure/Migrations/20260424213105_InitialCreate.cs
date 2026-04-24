@@ -56,17 +56,17 @@ namespace CoreBankingApplication.Infrastructure.Migrations
                     transactionType = table.Column<int>(type: "INTEGER", nullable: false),
                     Amount = table.Column<decimal>(type: "TEXT", nullable: false),
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    AccountId = table.Column<int>(type: "INTEGER", nullable: false),
-                    bankAccountId = table.Column<int>(type: "INTEGER", nullable: true)
+                    AccountId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Transactions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Transactions_Accounts_bankAccountId",
-                        column: x => x.bankAccountId,
+                        name: "FK_Transactions_Accounts_AccountId",
+                        column: x => x.AccountId,
                         principalTable: "Accounts",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -75,9 +75,9 @@ namespace CoreBankingApplication.Infrastructure.Migrations
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transactions_bankAccountId",
+                name: "IX_Transactions_AccountId",
                 table: "Transactions",
-                column: "bankAccountId");
+                column: "AccountId");
         }
 
         /// <inheritdoc />

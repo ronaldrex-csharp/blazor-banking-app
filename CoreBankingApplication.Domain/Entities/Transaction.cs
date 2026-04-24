@@ -13,7 +13,7 @@ public class Transaction
     public DateTime Date { get; set; } = DateTime.UtcNow;
 
     public int AccountId { get; set; }
-    public BankAccount? bankAccount { get; set; }
+    public BankAccount? Account { get; set; }
 }
 public enum TransactionType
 {

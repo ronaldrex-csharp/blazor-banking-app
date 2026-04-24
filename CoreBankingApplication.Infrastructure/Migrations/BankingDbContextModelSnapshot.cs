@@ -77,15 +77,12 @@ namespace CoreBankingApplication.Infrastructure.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("bankAccountId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("transactionType")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("bankAccountId");
+                    b.HasIndex("AccountId");
 
                     b.ToTable("Transactions");
                 });
@@ -103,11 +100,13 @@ namespace CoreBankingApplication.Infrastructure.Migrations
 
             modelBuilder.Entity("CoreBankingApplication.Domain.Entities.Transaction", b =>
                 {
-                    b.HasOne("CoreBankingApplication.Domain.Entities.BankAccount", "bankAccount")
+                    b.HasOne("CoreBankingApplication.Domain.Entities.BankAccount", "Account")
                         .WithMany("Transactions")
-                        .HasForeignKey("bankAccountId");
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("bankAccount");
+                    b.Navigation("Account");
                 });
 
             modelBuilder.Entity("CoreBankingApplication.Domain.Entities.BankAccount", b =>

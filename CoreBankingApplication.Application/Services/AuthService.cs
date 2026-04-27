@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace CoreBankingApplication.Application.Services;
-
+/// <summary>
+/// Document Use Case: Authentication Service
+/// </summary>
 public class AuthService
 {
     public bool IsAuthenticated { get; private set; }

@@ -701,3 +701,14 @@ body {
     cursor: pointer;
     text-decoration: none;
 }
+.btn.btn-success {
+    background-color: #198754 !important;
+    border-color: #198754 !important;
+    color: white !important;
+}
+
+.btn.btn-danger {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: white !important;
+}

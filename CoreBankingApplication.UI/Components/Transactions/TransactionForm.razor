@@ -58,14 +58,15 @@
 
         <!-- BUTTONS -->
         <div class="button-stack">
+
             <button type="submit"
-                    class="btn @(isValid? GetSubmitButtonClass() : "btn-bank-disabled")"
+                    class="btn @(transactionType == "Deposit" ? "btn-success" : "btn-danger")"
                     disabled="@(!isValid)">
                 @(transactionType == "Withdrawal" ? "Submit Withdrawal" : "Submit Deposit")
             </button>
 
             <button type="button"
-                    class="btn btn-bank-secondary"
+                    class="btn btn-primary"
                     @onclick="GoBack">
                 Back to Accounts
             </button>
@@ -124,9 +125,9 @@
 
     private string GetSubmitButtonClass()
     {
-        return transactionType == "Withdrawal"
-            ? "btn-bank-danger"
-            : "btn-bank-success";
+        return transactionType == "Deposit"
+        ? "btn-deposit"
+        : "btn-withdrawal";
     }
 
     private void GoBack()
